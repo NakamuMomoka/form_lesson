@@ -27,9 +27,98 @@
             <p class="is-defaultText">アカウント情報</p>
           </div>
           <form class="form-content" action="#" method="POST">
-            <!--
-              ここに続きのHTMLを書いていきましょう
-            -->
+            <div class="section-layout name-box">
+              <div class="half__box-layout name-box__family-name">
+                <p class="text-option">
+                  名字 <span class="note">※</span>
+                </p>
+                <input type="text" id="family-name" name="family-name" class="box-layout">
+              </div>
+              <div class="half__box-layout name-box__first-name">
+                <p class="text-option">
+                  名前 <span class="note">※</span>
+                </p>
+                <input type="text" id="first-name" name="first-name" class="box-layout">
+              </div>
+            </div>
+            <div class="section-layout">
+              <p class="text-option">性別</p>
+              <div class="gender-box">
+                <label for="male" class="radio__text">
+                  <input type="radio" id="male" name="gender" value="male" class="radio-layout">
+                  <span>
+                    男性
+                  </span>
+                </label>
+                <label for="female" class="radio__text">
+                  <input type="radio" id="female" name="gender" value="female" class="radio-layout">
+                  <span>
+                    女性
+                  </span>
+                </label>
+                <label for="other" class="radio__text">
+                  <input type="radio" id="other" name="gender" value="other" class="radio-layout">
+                  <span>
+                    その他
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="section-layout">
+              <p class="text-option">出身</p>
+              <div class="from__menu">
+                <select id="from" name="from" required class="box-layout from__serect">
+                <option value="tokyo">東京</option>
+                <option value="chiba">千葉</option>
+                <option value="saitama">埼玉</option>
+                <option value="kanagawa">神奈川</option>
+                </select>
+              </div>
+            </div>
+            <div class="section-layout">
+              <p class="text-option">
+                Eメール <span class="note">※</span>
+              </p>
+              <input type="email" id="email" name="email" value="" placeholder="ex) hoge@example.com" class="box-layout">
+            </div>
+            <div class="section-layout">
+              <p class="text-option">電話番号</p>
+              <input type="tel" id="tel" name="tel" value="" placeholder="ex) 09012345678" class="box-layout">
+            </div>
+            <div class="section-layout">
+              <p class="text-option">
+                パスワード <span class="note">※</span>
+              </p>
+              <input type="password" id="password" name="password" class="box-layout">
+            </div>
+            <div class="section-layout">
+              <p class="text-option">
+                パスワード(確認用) <span class="note">※</span>
+              </p>
+              <input type="password" id="password-check" name="password-check" class="box-layout">
+            </div>
+            <div class="section-layout">
+              <p class="text-option">希望コース</p>
+              <div class="checkbox__course">
+                <input type="checkbox" id="front-end" name="course" class="checkbox__check">
+                <label for="front-end" class="checkbox__text">フロントエンド</label>
+              </div>
+              <div class="checkbox__course">
+                <input type="checkbox" id="back-end" name="course" class="checkbox__check">
+                <label for="back-end" class="checkbox__text">バックエンド</label>
+              </div>
+              <div class="checkbox__course">
+                <input type="checkbox" id="app" name="course" class="checkbox__check">
+                <label for="app" class="checkbox__text">アプリ</label>
+              </div>
+            </div>
+            <div class="section-layout">
+              <p class="text-option">備考</p>
+              <textarea name="remarks" id="remarks" placeholder="何かあればご記入ください" class="remarks__text-area box-layout"></textarea>
+            </div>
+            <div class="section-layout">
+              <input type="submit" id="account" name="account" value="アカウント作成" class="account-button">
+            </div>
             <p class="agreement">アカウントを作成することにより、<a class="link-color" href>利用規約</a>と<a class="link-color" href>プライバシーポリシー</a>に同意するものとします。</p>
           </form>
         </div>

@@ -1,5 +1,243 @@
 @charset "utf-8";
 
+/*inputは疑似要素使えない(コンテンツを内包できないため)
+  同じグループで扱う際は各項目同じname属性を使用する
+  id>css,JS name>PHPで使用される、同じ名前でok*/
+
+.text-option {
+  color: #545658;
+  font-size: 12px;
+}
+
+.note {
+  color: #dd4b39;
+}
+
+.section-layout {
+  margin-top: 20px;
+}
+
+.section-layout:first-child {
+  margin-top: 0;
+}
+
+.box-layout {
+  background-color: #fbfbfb;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #545658;
+  height: 36px;
+  line-height: 2;
+  margin-top: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.half__box-layout {
+  width: 50%;
+}
+
+/*入力中レイアウト(focus)----------------------------*/
+
+.box-layout:focus {
+  background-color: #fff;
+  border-color: rgba(59, 133, 133, .4); /*rgba 赤緑青透明度*/
+  box-shadow: 0 0 0 2px rgb(1 191 189 / 10%); /*box周りの影*/
+  outline: none; /*黒枠を隠す*/
+}
+
+/*名前----------------------------------------------*/
+
+.name-box {
+  display: flex;
+}
+
+.name-box__first-name {
+  margin-left: 16px;
+}
+
+/*性別----------------------------------------------*/
+
+.gender-box {
+  display: flex;
+  color: #545658;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.gender-box:first-child {
+  margin-left: 0;
+}
+
+/*ラジオボタン----------------------------------------
+
+##labelの中にinputを配置
+  1. inputを隠す
+  2. label内にボタンを置くスペースを確保する
+  3. 疑似要素 before after
+  4. checked
+  
+  + 隣接セレクタ radio-layoutがチェックされたときspanに適用*/
+
+.radio-layout {
+  display: none;
+}
+
+.radio__text {
+  position: relative;
+  padding: 3px 3px 3px 20px;
+  display: block;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.radio__text:first-child {
+  margin-left: 0;
+}
+
+/*beforeで外枠作成 spanの前に外枠設置*/
+
+.radio__text span::before {
+  position: absolute;
+  left: 0;
+  top: 50%; /*親要素の中央に移動する(頭が半分ラインにくっつく感じ)*/
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  content: '';
+  background-color: #fbfbfb;
+  transform: translateY(-50%); /*子要素の半分を引き戻す*/
+}
+
+/*afterは真ん中の●を作成
+チェックした際に、
+radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要素を作成*/
+
+.radio-layout:checked + span::after {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  content: '';
+  background-color: #01bfbd;
+  transform: translateY(-50%);
+}
+
+/*出身プルダウン-------------------------------------
+##
+  1. デフォルトを隠す
+  2. 下矢印作成して置く */
+
+.from__serect {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* 3行デフォルトのスタイルを無効 */
+}
+
+.from__menu {
+  position: relative;
+  margin-top: 8px;
+  width: 50%;
+}
+
+.from__menu::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: rotate(45deg); /*四角のright,bottomを45度傾ける(時計回り)*/
+  height: 5px;
+  width: 5px;
+  border-right: 2px solid #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+/*コース・チェックボックス-----------------------------
+
+##ラジオと同じ
+  1. inputを隠す
+  2. label内にボタンを置くスペースを確保する
+  3. 疑似要素 before after
+  4. checked
+  
+  + 隣接セレクタ radio-layoutがチェックされたときspanに適用*/
+
+.checkbox__course {
+  font-size: 16px;
+  color: #545658;
+  margin-top: 10px;
+}
+
+.checkbox__course:nth-of-type(1) {
+  margin-top: 5px; /*1番目のcheckbox__courseにスタイル適用*/
+}
+
+.checkbox__check {
+  display: none;
+}
+
+.checkbox__text {
+  position: relative;
+  padding-left: 25px;
+}
+
+/*box*/
+.checkbox__text::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 15px;
+  width: 15px;
+  margin-top: -8px;
+  content: "";
+  border: 1px solid #d9d9d9;
+}
+
+/*チェック
+.checkbox__course inputと同じ階層かつ直後にあるcheckbox__textの直後の要素⇒after?
+(A+B) BはAの直後でないといけない
+接続した同じレベル(インデント)の直後（ここでいうafter?）*/
+.checkbox__check:checked + .checkbox__text::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: rotate(45deg);/*8*16の長方形をかたむけているため、片方が長い！*/
+  height: 16px;
+  width: 8px;
+  margin-top: -12px;
+  border-right: 3px solid #01bfbd;
+  border-bottom: 3px solid #01bfbd;
+}
+
+/*備考---------------------------------------------*/
+
+.remarks__text-area {
+  resize: none; /*textarea固定*/
+  width: 100%;
+  height: 100px;
+}
+
+/*アカウント作成------------------------------------*/
+
+.account-button {
+  background-color: #01bfbd;
+  color: #fff;
+  border: 1px solid #01bfbd;
+  padding: 13px;
+  width: 100%;
+}
+
+/*--------------------------------------------------*/
+
 /*--- common style ---*/
 .is-halfWidth {
   width: 50%;
