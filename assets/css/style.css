@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @charset "utf-8";
 
 /*inputは疑似要素使えない(コンテンツを内包できないため)
@@ -31,7 +38,8 @@
   line-height: 2;
   margin-top: 5px;
   padding: 5px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
 }
 
@@ -44,13 +52,16 @@
 .box-layout:focus {
   background-color: #fff;
   border-color: rgba(59, 133, 133, .4); /*rgba 赤緑青透明度*/
-  box-shadow: 0 0 0 2px rgb(1 191 189 / 10%); /*box周りの影*/
+  -webkit-box-shadow: 0 0 0 2px rgb(1 191 189 / 10%);
+          box-shadow: 0 0 0 2px rgb(1 191 189 / 10%); /*box周りの影*/
   outline: none; /*黒枠を隠す*/
 }
 
 /*名前----------------------------------------------*/
 
 .name-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -61,6 +72,8 @@
 /*性別----------------------------------------------*/
 
 .gender-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: #545658;
   font-size: 16px;
@@ -110,7 +123,9 @@
   height: 14px;
   content: '';
   background-color: #fbfbfb;
-  transform: translateY(-50%); /*子要素の半分を引き戻す*/
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); /*子要素の半分を引き戻す*/
 }
 
 /*afterは真ん中の●を作成
@@ -127,7 +142,9 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
   height: 8px;
   content: '';
   background-color: #01bfbd;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 /*出身プルダウン-------------------------------------
@@ -138,7 +155,7 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
 .from__serect {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; /* 3行デフォルトのスタイルを無効 */
+  appearance: none; /* デフォルトのスタイルを無効 */
 }
 
 .from__menu {
@@ -153,7 +170,9 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
   position: absolute;
   right: 10px;
   top: 50%;
-  transform: rotate(45deg); /*四角のright,bottomを45度傾ける(時計回り)*/
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); /*四角のright,bottomを45度傾ける(時計回り)*/
   height: 5px;
   width: 5px;
   border-right: 2px solid #d9d9d9;
@@ -210,7 +229,9 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
   position: absolute;
   left: 6px;
   top: 50%;
-  transform: rotate(45deg);/*8*16の長方形をかたむけているため、片方が長い！*/
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);/*8*16の長方形をかたむけているため、片方が長い！*/
   height: 16px;
   width: 8px;
   margin-top: -12px;
@@ -267,9 +288,12 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
 }
 
 .button {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   text-align: center;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
   padding: 13px;
   font-size: 13px;
@@ -292,11 +316,13 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
 }
 
 .main-content {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 48px 64px;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .18);
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, .18);
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, .18);
 }
 
 .form-title {
@@ -307,6 +333,8 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
 
 /*--- SNS part ---*/
 .columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 24px;
 }
@@ -358,7 +386,9 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   height: 1px;
   width: 100%;
   background-color: #ececec;
@@ -392,7 +422,8 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
 }
 
 .foot-part a:hover {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-bottom: 1px solid #ececec;
   border-bottom-color: #01bfbd;
 }
