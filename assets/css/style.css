@@ -160,8 +160,8 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
 
 .from__menu {
   position: relative;
-  margin-top: 8px;
   width: 50%;
+  margin-top: 8px;
 }
 
 .from__menu::after {
@@ -255,8 +255,20 @@ radio-layout:checkedと同じ階層かつ直後にあるspan要素の後に要�
   border: 1px solid #01bfbd;
   padding: 13px;
   width: 100%;
+  transition: 0.3s;
 }
 
+.account-button:hover {
+  background-color: #01a6a4;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.account-button:active {
+  background-color: #fff;
+  color: #01a6a4;
+  border-color: #d9d9d9;
+}
 /*--------------------------------------------------*/
 
 /*--- common style ---*/
